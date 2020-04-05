@@ -1,0 +1,417 @@
+html{
+  height: 100%;
+}
+body{
+  margin: 0 auto;
+  /* background-color: lightgreen; */
+  height:100%;
+  padding: 0;
+}
+.btn_mypage{
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
+  margin-top: 8px;
+  /* display: inline-block; */
+  background-color: red;
+  cursor: pointer;
+}
+header{
+  background-color: black;
+  height: 6%;
+  top: 0;
+  color: white;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+}
+header h1{
+  margin: 0;
+  padding: 0;
+}
+
+footer{
+  height: 14%;
+  background-color: rgb(235, 235, 235);
+  z-index: 2;
+}
+
+/* こっから下メイン要素 */
+.allContainer{
+  background-color: rgb(235, 235, 235);
+  /* background: red; */
+  height: 80%;
+  margin: 0;
+  /* z-index: 1; */
+  border-bottom: 1px solid gray;
+}
+
+.subContainer{
+  /* background: blue; */
+  height: 100%;
+  margin: 0;
+  display: flex;
+  position: relative;
+}
+.leftContainer{
+  width: 15%;
+  /* background: green; */
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.centerContainer{
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  /* margin-top: 10px; */
+  padding: 0;
+  padding-left: 10px;
+}
+.chatContaint{
+  /* width: 70%; */
+  /* background: yellow; */
+  height: 94%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 0;
+  padding-left: 10px;
+  border-radius: 10px;
+  overflow: auto;
+  /* display: inline-block; */
+}
+.pagenation{
+  /* background: red; */
+  text-align: center;
+}
+
+.rightContainer{
+  width: 15%;
+  /* background: blanchedalmond; */
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.textWindowWrap{
+  height: 95px;
+  width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.name_icon > img{
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  margin: 0;
+  border: 2px solid black;
+  display: block;
+}
+
+.textArea > textarea{
+  margin-top: 10px;
+  margin-left: 100px;
+  width: 600px;
+  height: 80px;
+}
+
+.selectedChar{
+  /* color: white; */
+  font-weight: bold;
+  display: block;
+}
+
+.name_icon{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.textArea{
+  display: inline-block;
+  width: 600px;
+  height: 80px;
+  padding: 0;
+  margin: 0;
+}
+
+.textWindow{
+  position: absolute;
+  padding-left: 50px;
+}
+
+.name_icon{
+  position: absolute;
+  padding-left: 50px;
+  top: 0;
+  left: 0;
+}
+.chat_submit{
+  position: absolute;
+  right: -150px;
+  top: 70px;
+}
+
+.mainChat{
+  /* background-color: rgb(230, 222, 222); */
+  border-bottom: 1px solid gray;
+  display: table;
+  width: 100%;
+  /* width: 800px; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.onchatIcon{
+  display: inline-block;
+  display: table-cell;
+  width: 75px;
+  vertical-align: middle;
+  /* position: absolute; */
+}
+.onchatIcon > img{
+  width: 70px;
+  height: 70px;
+  margin: auto 0;
+  /* vertical-align: middle; */
+  /* position: absolute; */
+  /* margin: auto; */
+}
+
+.onchatInfo{
+  display: inline-block;
+}
+
+.id{
+  display:inline-block;
+  color: brown;
+  opacity: 0.7;
+}
+.name{
+  display:inline-block;
+  color: rgb(80,0,0);
+  font-weight: bold;
+  margin-right: 20px;
+}
+.date{
+  display:inline-block;
+  opacity: 0.3;
+}
+
+.mypage_menu{
+  width: 250px;
+  background-color: lightseagreen;
+  display: none;
+  position: relative;
+  z-index: 5;
+  border-radius: 10px;
+  top: 10px;
+  left: 980px;
+}
+
+.mypage_menu > p{
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.joinRequestWindow{
+  text-align:center;
+  background-color:gray;
+  /* box-shadow: 3px black; */
+  width:300px;
+  margin:0 auto;
+  padding-bottom:20px;
+  color:white;
+  position:absolute;
+  left:500px;
+  /* border-radius:10px; */
+  border: 5px solid black;
+  display:none;
+  z-index: 5;
+}
+
+.joinRequest , .kpOnlyButtonWindow{
+  height: 40px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.joinRequest > button , .kpOnlyButton{
+  width: 150px;
+  height: 30px;
+  font-weight: bold;
+}
+
+
+.requestedMember{
+  display: none;
+  background-color: gray;
+  border: 5px solid black;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  top: 100px;
+  left: 70px;
+  padding-right: 40px;
+}
+
+.requestedConfirm{
+  display:none;
+  background-color: gray;
+  border: 5px solid black;
+  color: white;
+  position:absolute;
+  text-align:center;
+  width:250px;
+  height:130px;
+  top:150px;
+  left:200px;
+  z-index:3;
+}
+
+ul{
+  list-style: none;
+}
+
+.skillRollStart{
+  position: relative;
+  top: 470px;
+  left: 25px;
+  width: 130px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 2px 2px 0 gray;
+  display: inline-block;
+}
+.NormalDice{
+  position: relative;
+  top: 500px;
+  left: 25px;
+  width: 130px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 2px 2px 0 gray;
+  display: inline-block;
+}
+
+.skillTypeWrap{
+  position: relative;
+  top: 150px;
+  left: -130px;
+  width: 100px;
+  padding-right: 90px;
+  background-color: rgb(200, 200, 200);
+  border: 1px solid black;
+  border-radius: 5px;
+  display: none;
+}
+.skillType{
+  margin: 0 ;
+  position: relative;
+}
+
+.skillTypeButton{
+  position: relative;
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+  margin: 0 ;
+}
+
+#skillRoll{
+  position:relative;
+  top: -150px;
+  left: -320px;
+  background-color: rgb(200, 200, 200);
+  border: 1px solid black;
+  border-radius: 5px;
+  list-style: none;
+  z-index: 9;
+  text-align: center;
+}
+#skillRoll > li >button{
+  width: 100px;
+  background-color: rgb(250,235,235);
+}
+
+.dice_box{
+  background-color: rgb(200, 200, 200);
+  width: 100px;
+  position: relative;
+  /* padding-right: 45px; */
+  top: 260px;
+  left: -90px;
+  text-align: center;
+  border: 1px solid black;
+  display: none;
+  z-index: 10;
+}
+
+.normalDiceButton{
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  margin:0;
+}
+
+.normalDiceList{
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.displayNone{
+  display: none;
+}
+
+.myCharList{
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+  padding-left: 20px;
+}
+
+.myCharList > li > a{
+  /* text-decoration: none; */
+  color: black;
+}
+
+.temp_charName{
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  color: gray;
+}
+
+.temp_char{
+  background-color: white;
+  border: 1px solid black;
+  text-align: center;
+  margin-left: 4px;
+  margin-top: 100px;
+  font-weight: bold;
+  width: 200px;
+}
+
+.temp_char > p{
+  font-weight: bold;
+  text-align: center;
+}
+
+.tempUserName{
+  opacity: 0.6;
+}
+
+.temp_charWrap{
+  margin-bottom: 15px;
+}
