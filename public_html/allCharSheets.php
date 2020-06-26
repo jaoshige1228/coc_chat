@@ -28,9 +28,8 @@ $app->getAllCharData($_GET['roomId'],$charID);
         <p>STR:<?= $app->char_data[$i]['str']; ?>　DEX:<?= $app->char_data[$i]['dex']; ?>　INT:<?= $app->char_data[$i]['intel']; ?>　CON:<?= $app->char_data[$i]['con']; ?>　SIZ:<?= $app->char_data[$i]['siz']; ?>　APP:<?= $app->char_data[$i]['app']; ?>　POW:<?= $app->char_data[$i]['pow']; ?>　SAN:<?= $app->char_data[$i]['san']; ?>　MAXSAN:<?= $app->char_data[$i]['maxSan']; ?>　EDU:<?= $app->char_data[$i]['edu']; ?>　HP:<?= $app->char_data[$i]['hp']; ?>　MP:<?= $app->char_data[$i]['mp']; ?>　アイデア:<?= $app->char_data[$i]['idea']; ?>　知識:<?= $app->char_data[$i]['know']; ?>　幸運:<?= $app->char_data[$i]['luck']; ?>　ダメージボーナス:<?= $app->char_data[$i]['db']; ?></p>
         <h3>各種技能</h3>
         <?php echo $show->show($app->char_skills[$i],$app->char_skills_def[$i]); ?>
-        <h3>その他情報</h3>
-        <p>プロフィール:<?= '<br />'.nl2br($app->char_data[$i]['profile']); ?></p>
-        <p>備考:<?= '<br />'.nl2br($app->char_data[$i]['subProfile']); ?></p>
+        <h3>プロフィール</h3>
+        <p><?= nl2br($app->char_data[$i]['profile']); ?></p>
       </div>
     <?php endfor; ?>
   </div>

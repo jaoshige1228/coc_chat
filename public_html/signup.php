@@ -13,8 +13,9 @@ $app->run();
 <html lang="ja">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9,minimum-scale=0.9,user-scalable=no">
   <title>アカウント作成</title>
-  <link rel="stylesheet" href="/sty.css">
+  <link rel="stylesheet" href="<?= PUBLIC_URL_HEADER; ?>/sty.css">
 </head>
 <body>
   <div id="container">

@@ -91,7 +91,7 @@ $(function(){
         userName: userName,
         roomId: $('.roomId').val()
       },function(data){
-        console.log(data);
+        // console.log(data);
         // 現在参加している部屋のidをゲットし、リダイレクト
         var id = data;
         var host = '/chat_room.php/?roomId=';
@@ -100,6 +100,42 @@ $(function(){
       });
     }
   });
+
+  // HPやSANの増減処理
+  $('.modifiData').on('click','button',function(){
+    // var mpUD = $('#mpUD').val();
+    // console.log(mpUD);
+    $.post('/calculation.php',{
+      modifiData: 'on',
+      hp: $('#hp').val(),
+      hpUD: $('#hpUD').val(),
+      mp: $('#mp').val(),
+      mpUD: $('#mpUD').val(),
+      san: $('#san').val(),
+      sanUD: $('#sanUD').val(),
+      roomId: $('.roomId').val()
+    },function(data){
+      // console.log(data);
+      var id = data;
+      var host = '/chat_room.php/?roomId=';
+      var redirect = host + id;
+      window.location.href = redirect;
+    });
+  });
+
+  $('.modifiedHP').on('click',function(){
+    $('.modifiData').toggle();
+  });
+
+  // レスポンシブ時処理
+  $('#SPmenu').on('click', function(){
+    $('.leftContainer').toggle();
+  });
+  $('#SPmenu2').on('click', function(){
+    $('.rightContainer').toggle();
+  });
+
+
 
 
 });

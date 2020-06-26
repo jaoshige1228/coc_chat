@@ -1,10 +1,11 @@
+html{
+  width: 100%;
+}
+
 body{
   background-color:rgb(255, 255, 255);
-  /* background-color: lightgreen; */
-  width:1200px;
+  width:100%;
   margin:0 auto;
-  /* color:white; */
-  /* color:white; */
   height:100%;
 }
 
@@ -12,11 +13,14 @@ body{
   text-align:center;
   color:white;
   opacity:0.7;
+  margin: 0;
+}
+.siteGuide > p{
+  margin: 0;
 }
 .returnHome{
   display:inline-block;
   text-decoration: none;
-  /* color:white; */
   font-size: 20px;
 }
 
@@ -31,42 +35,51 @@ ul{
 }
 
 .title{
+  width: 100%;
+  height: 120px;
   margin:0;
   padding-top:10px;
   padding-bottom:10px;
   background-color: black;
 }
+.titleFlexContainer{
+  width: 100%;
+  height: 80%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
 .titleImage{
-  display:inline-block;
   text-align:center;
   line-height: 70px;
   width:400px;
   height:70px;
-  margin-left:400px;
-  margin-right:200px;
   background: white;
 }
 
 .btn_mypage{
-  display:inline-block;
   cursor:pointer;
   margin:0;
   padding:0;
-  width:50px;
-  height:40px;
-  background-color:red;
-  /* float:right; */
+  width:70px;
+  height:70px;
+  /* background-color:red; */
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
 }
 
 .mainPackage{
-  width:880px;
+  width: 80%;
+  /* height: 100px; */
   margin:0 auto;
-  /* border:1px groove rgb(255,255,0,0.3); */
   border-radius: 10px;
   padding-bottom: 10px;
   border:1px solid black;
-  /* text-align:center; */
 }
 
 /* 部屋検索窓 */
@@ -97,8 +110,18 @@ ul{
 }
 
 .pazing{
+  width: 300px;
+  margin: 0 auto;
   text-align: center;
+  border: 1px solid gray;
+  margin-top: 16px;
+  font-size: 20px;
   /* color: white; */
+}
+.back{
+  /* display: inline-block; */
+  background: rgb(220, 220, 220);
+  /* color: blue; */
 }
 
 /* マイページメニュー */
@@ -198,10 +221,14 @@ table{
 .decideButtonDouble{
   display:inline-block;
   text-align:center;
+  text-decoration: none;
   width: 160px;
   height: 40px;
   margin: 0 auto;
   font-size: 20px;
+}
+.decideButtonDouble > a{
+  text-decoration: none;
 }
 /* 〜〜〜ここまでキャラ作成関係の処理〜〜〜 */
 
@@ -223,6 +250,14 @@ table{
   width: 600px;
   margin: 0 auto;
 }
+.myCharSkillsWrap{
+  width: 900px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.myCharSkillsWrap td{
+  background: rgb(240, 240, 240);
+}
 .borderContain{
   background-color: rgb(240, 240, 240);
   /* border: 1px solid black; */
@@ -240,8 +275,20 @@ table{
 .home{
   margin-bottom:30px;
 }
+.wrap_skillTable{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 .skillTable{
   display:none;
+}
+table{
+  background: rgb(200, 200, 200);
+  width: 100%;
+}
+table input{
+  width: 50px;
 }
 .btn_skillTable{
   display:none;
@@ -265,20 +312,25 @@ footer{
 .welcome{ 
   background-color: black;
   color: white;
-  width: 700px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
 }
 #container{
-  width: 1000px;
+  width: 80%;
   margin: 0 auto;
 }
 #loginForm{
-  width: 570px;
+  width: 100%;
   margin: 0 auto;
   border-left: 2px solid lightgray;
   padding: 0;
-  padding-left: 130px;
+}
+#loginForm form{
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .userInputForm{
@@ -333,4 +385,52 @@ footer{
 .modi{
   letter-spacing: -1px;
   font-size: 12px;
+}
+.titleBr{
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .mainPackage{
+    width: 100%;
+  }
+  .roomList{
+    width: 98%;
+  }
+  .title{
+    padding: 0;
+  }
+  .titleImage{
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+  }
+  .titleFlexContainer{
+    padding-top: 10px;
+    height: 60%;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .btn_mypage{
+    position: static;
+    margin: 0;
+  }
+  .siteGuide > p{
+    font-size: 10px;
+  }
+  .titleBr{
+    display: block;
+  }
+  .mypage_menu{
+    top: 60px;
+    right: 50px;
+  }
+  #loginForm > form{
+    margin-left: 20px;
+  }
+  .createRoomWindow{
+    top: 150px;
+    left: 40px;
+    z-index: 15;
+  }
 }

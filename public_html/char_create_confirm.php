@@ -19,6 +19,7 @@ $i = 0;
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9,minimum-scale=0.9,user-scalable=no">
   <title>キャラシ登録確認</title>
   <link rel="stylesheet" href="sty.css">
 </head>

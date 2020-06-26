@@ -22,6 +22,7 @@ if(!function_exists('imagecreatetruecolor')){
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9,minimum-scale=0.9,user-scalable=no">
   <title><?= h($char['name']); ?></title>
   <link rel="stylesheet" href="sty.css">
 </head>
@@ -54,7 +55,7 @@ if(!function_exists('imagecreatetruecolor')){
     </div>
   </div>
 
-  <div class="myCharStatusWrap">
+  <div class="myCharSkillsWrap">
     <h3 class="subTitle">●各種技能</h3>
     <div class="borderContain">
       <?php echo $app_s->show($skills,$skills_def); ?>
@@ -94,6 +95,7 @@ if(!function_exists('imagecreatetruecolor')){
 
   <div class="center">
     <button type="button" class="decideButtonDouble"><a href="char_modify.php">編集する</a></button>
+    <button type="button" class="decideButtonDouble"><a href="char_modify.php">削除する</a></button>
   </div>
 </body>
 </html>

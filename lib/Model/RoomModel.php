@@ -130,4 +130,44 @@ class RoomModel extends \MyApp\Model {
     $stmt->bindValue(':roomId',$roomId,\PDO::PARAM_INT);
     $stmt->execute();
   }
+
+
+  // HPSAN増減処理
+  public function modifiData($hp, $mp, $san, $hpUD, $mpUD, $sanUD, $id, $name){
+    $sql = "select * from temp_player where roomId = :roomId and userName = :name";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([
+      ':roomId' => $id,
+      ':name' => $name
+    ]);
+    $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+    $tempHP = $data['charHP'];
+    $tempMP = $data['charMP'];
+    $tempSAN = $data['charSAN'];
+    $newHP = $this->DataCul($tempHP, $hp, $hpUD);
+    $newMP = $this->DataCul($tempMP, $mp, $mpUD);
+    $newSAN = $this->DataCul($tempSAN, $san, $sanUD);
+
+    $sql = "update temp_player set 
+    charHP = :newHP,
+    charMP = :newMP,
+    charSAN = :newSAN 
+    where roomId = :roomId and userName = :name";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue(':newHP',$newHP,\PDO::PARAM_INT);
+    $stmt->bindValue(':newMP',$newMP,\PDO::PARAM_INT);
+    $stmt->bindValue(':newSAN',$newSAN,\PDO::PARAM_INT);
+    $stmt->bindValue(':roomId',$id,\PDO::PARAM_INT);
+    $stmt->bindValue(':name',$name,\PDO::PARAM_STR);
+    $stmt->execute();
+  }
+
+  private function DataCul($temp, $data, $ud){
+    if($ud == 'up'){
+      $temp += $data;
+    }else if($ud == 'down'){
+      $temp -= $data;
+    }
+    return $temp;
+  }
 }

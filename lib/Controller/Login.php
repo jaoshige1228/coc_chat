@@ -6,7 +6,7 @@ class Login extends \MyApp\Controller {
 
   public function run() {
     if ($this->isLoggedIn()) {
-      header('Location: ' . SITE_URL);
+      header('Location: ' . SITE_URL . PUBLIC_URL_HEADER);
       exit;
     }
 
@@ -44,7 +44,7 @@ class Login extends \MyApp\Controller {
       $_SESSION['me'] = $user;
 
       // redirect to home
-      header('Location: ' . SITE_URL);
+      header('Location: ' . SITE_URL . PUBLIC_URL_HEADER);
       exit;
     }
   }

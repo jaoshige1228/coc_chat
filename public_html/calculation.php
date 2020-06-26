@@ -63,3 +63,19 @@ if(isset($_POST['userName'])){
   $app->setTempPlayer($id,$userName);
   echo $id;
 }
+
+// HPSAN増減処理
+if(isset($_POST['modifiData']) && $_POST['modifiData'] == 'on'){
+  $hp = $_POST['hp'];
+  $hpUD = $_POST['hpUD'];
+  $mp = $_POST['mp'];
+  $mpUD = $_POST['mpUD'];
+  $san = $_POST['san'];
+  $sanUD = $_POST['sanUD'];
+  $id = $_POST['roomId'];
+  $name = $_SESSION['me']->name;
+
+  $app->modifiData($hp, $mp, $san, $hpUD, $mpUD, $sanUD, $id, $name);
+
+  echo $id;
+}

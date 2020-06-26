@@ -31,7 +31,7 @@ create table temp_player(
 
 create table chars(
   id int not null auto_increment primary key,
-  plId int unique,
+  plId int,
   name varchar(120),
   sex varchar(10),
   age int,
@@ -56,10 +56,9 @@ create table chars(
   subProfile text,
   sum_jobP int,
   sum_hobP int,
-  sum_etcP int
+  sum_etcP int,
+  icon varchar(1000) default 'thumbs/user.png'
 );
-
-alter table chars add icon varchar(1000);
 
 create table skills(
   id int not null auto_increment primary key,
@@ -126,8 +125,6 @@ create table skills(
   `歴史` int default 20
 );
 
-drop table chat1;
-
 create table chat(
   id int(5) zerofill auto_increment primary key,
   name varchar(255),
@@ -143,9 +140,6 @@ create table rooms(
   created datetime,
   modified datetime
 );
-
-alter table chat1 add icon varchar(1000);
-
 
 create table skills_def(
   id int not null auto_increment primary key,

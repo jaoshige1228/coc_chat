@@ -22,7 +22,7 @@ class Chat extends \MyApp\Controller {
         }else{
           $chatModel = new \MyApp\Model\ChatModel();
           $chatModel->chatPost($_POST[$name],h($_POST[$text]),date($date),$_POST[$icon],$_GET['roomId']);
-          header('Location: /chat_room.php/?roomId='.$_GET['roomId']);
+          header('Location: ' . PUBLIC_URL_HEADER . '/chat_room.php/?roomId='.$_GET['roomId']);
         }
         // 時間更新処理
         $data = new \MyApp\Model\RoomModel();
@@ -62,7 +62,7 @@ class Chat extends \MyApp\Controller {
 
     $chatModel = new \MyApp\Model\ChatModel();
     $chatModel->chatPost($_POST['chat_name'],$text,date('Y-m-d H:i:s'),$icon,$_GET['roomId']);
-    header('Location: /chat_room.php/?roomId='.$_GET['roomId']);
+    header('Location: ' . PUBLIC_URL_HEADER . '/chat_room.php/?roomId='.$_GET['roomId']);
   }
 
   // チャットの全文表示
@@ -161,7 +161,7 @@ class Chat extends \MyApp\Controller {
         $_SESSION['charIcon'] = $_POST['char_icon'];
         // update
         $this->_updateTempPlayer();
-        header('Location: /chat_room.php/?roomId='.$_GET['roomId']);
+        header('Location: ' . PUBLIC_URL_HEADER . '/chat_room.php/?roomId='.$_GET['roomId']);
      }
     }
   }
@@ -323,8 +323,14 @@ class Chat extends \MyApp\Controller {
 
   public function LoginCheck(){
     if(!$this->isLoggedIn()){
-      header('Location: /signup.php');
+      header('Location: ' . PUBLIC_URL_HEADER . '/signup.php');
     }
+  }
+
+  // HPSAN編集処理
+  public function modifiData($hp, $mp, $san, $hpUD, $mpUD, $sanUD, $id, $name){
+    $data = new \MyApp\Model\RoomModel();
+    $data->modifiData($hp, $mp, $san, $hpUD, $mpUD, $sanUD, $id, $name);
   }
 
 
