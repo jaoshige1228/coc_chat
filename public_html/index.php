@@ -104,6 +104,6 @@ $app->run();
   
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="<?= PUBLIC_URL_HEADER; ?>/function_other.js"></script>
+  <script src="<?= HEROKU_JS; ?>/function_other.js"></script>
 </body>
 </html>

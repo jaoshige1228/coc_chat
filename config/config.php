@@ -4,6 +4,7 @@
 // define('DSN', 'mysql:dbhost=localhost;dbname=coc_chat');
 // define('DB_USERNAME', 'dbuser');
 // define('DB_PASSWORD', 'kingdom');
+// define('HEROKU_JS','');
 define('PUBLIC_URL_HEADER','');
 
 // 公開サーバー用
@@ -12,6 +13,8 @@ $db['dbname'] = ltrim($db['path'], '/');
 define('DSN', "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8");
 define('DB_USERNAME', $db['user']);
 define('DB_PASSWORD', $db['pass']);
+define('HEROKU_JS','https://coc-chat-555.herokuapp.com');
+
 
 // 画像処理に用いる定数群
 define('MAX_FILE_SIZE',1*1024*1024);
@@ -24,7 +27,7 @@ define('THUMBNAIL_DIR', __DIR__ . '/../public_html/thumbs');
 define('MAX_SHOW_ROOM',10);
 define('MAX_CHAT_ROOM',10);
 
-define('SITE_URL','https://'.$_SERVER['HTTP_HOST']);
+define('SITE_URL','http://'.$_SERVER['HTTP_HOST']);
 
 require_once(__DIR__ .'/../lib/functions.php');
 require_once(__DIR__ .'/autoload.php');

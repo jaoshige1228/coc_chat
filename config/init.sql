@@ -119,21 +119,6 @@ create table skills(
   `歴史` int default 20
 );
 
-create table chat(
-  id int(5) zerofill auto_increment primary key,
-  name varchar(255),
-  text varchar(6000),
-  icon varchar(1000),
-  modified datetime
-);
-
-create table rooms(
-  id int auto_increment primary key,
-  roomName varchar(255),
-  userName varchar(255),
-  created datetime,
-  modified datetime
-);
 
 create table skills_def(
   id int not null auto_increment primary key,
@@ -410,6 +395,22 @@ create table skill_data(
   name varchar(60),
   defaultP int,
   value enum('戦闘','探索','行動','交渉','知識')
+);
+
+create table chat(
+  id int(5) zerofill auto_increment primary key,
+  name varchar(255),
+  text varchar(6000),
+  icon varchar(1000),
+  modified datetime
+);
+
+create table rooms(
+  id int auto_increment primary key,
+  roomName varchar(255),
+  userName varchar(255),
+  created datetime,
+  modified datetime
 );
 
 

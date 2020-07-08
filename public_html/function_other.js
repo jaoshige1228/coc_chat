@@ -1,4 +1,5 @@
 $(function(){
+  'use stirict';
   // メニューウィンドウのトグル
   $('.invisible').remove();
   $('.btn_mypage').click(function(){
