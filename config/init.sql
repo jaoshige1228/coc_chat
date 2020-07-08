@@ -1,9 +1,3 @@
-create database coc_chat;
-
-grant all on coc_chat.* to dbuser@localhost identified by 'kingdom';
-
-use coc_chat
-
 create table userType(
   id int not null auto_increment primary key,
   roomId int,

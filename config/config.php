@@ -4,7 +4,7 @@
 // define('DSN', 'mysql:dbhost=localhost;dbname=coc_chat');
 // define('DB_USERNAME', 'dbuser');
 // define('DB_PASSWORD', 'kingdom');
-// define('PUBLIC_URL_HEADER','');
+define('PUBLIC_URL_HEADER','');
 
 // 公開サーバー用
 $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
