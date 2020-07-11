@@ -60,8 +60,8 @@ if(!function_exists('imagecreatetruecolor')){
     <div class="borderContain">
       <?php echo $app_s->show($skills,$skills_def); ?>
       <p>職業技能点合計：<?= h($char['sum_jobP']); ?></p>
-      <p>趣味技能点合計<?= h($char['sum_hobP']); ?></p>
-      <p>成長技能点合計<?= h($char['sum_etcP']); ?></p>
+      <p>趣味技能点合計：<?= h($char['sum_hobP']); ?></p>
+      <p>成長技能点合計：<?= h($char['sum_etcP']); ?></p>
       <div class="skillTableConfirm">
         <table border="1">
           <tr>
