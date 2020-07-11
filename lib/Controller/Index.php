@@ -12,6 +12,37 @@ class Index extends \MyApp\Controller {
     }else{
       $this->logout = "invisible";
     }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['key'] == 'easyLogin'){
+      $this->_easyLogin();
+    }
+  }
+
+  // かんたんログイン処理
+  private function _easyLogin(){
+    // ランダムなユーザー名とパスワードを生成
+    $name = 'ゲスト' . substr(str_shuffle('1234567890'), 0, 5);
+    $password = substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
+
+    $userModel = new \MyApp\Model\User();
+    $userModel->create([
+      'name' => $name,
+      'password' => $password
+    ]);
+    $user = $userModel->login([
+      'name' => $name,
+      'password' => $password
+    ]);
+
+    // ダミーキャラシを登録する処理
+
+    // login処理
+    session_regenerate_id(true);
+    $_SESSION['me'] = $user;
+
+    // redirect to home
+    header('Location: ' . SITE_URL . PUBLIC_URL_HEADER);
+    exit;
   }
 
 

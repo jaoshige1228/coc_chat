@@ -16,6 +16,9 @@ $userType = $app->getUserType($_GET['roomId']);
 // チャットが投稿された時のみ発動
 $app->chatPost('chat_name','chat_text','Y-m-d H:i:s','chat_icon');
 
+
+var_dump($_SESSION['charIcon']);
+
 // 部屋で使うキャラを選択するときに発動
 $app->charSelect();
 

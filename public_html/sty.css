@@ -81,6 +81,13 @@ ul{
   padding-bottom: 10px;
   border:1px solid black;
 }
+.userNameShow{
+  font-style: italic;
+  padding: 5px 0 0 10px;
+}
+#easyLogin{
+  cursor: pointer;
+}
 
 /* 部屋検索窓 */
 .roomSearch{

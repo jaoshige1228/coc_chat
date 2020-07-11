@@ -52,10 +52,18 @@ $app->run();
     <ul>
       <li><a href="<?= PUBLIC_URL_HEADER; ?>/signup.php" class="menuButton">■アカウント作成</a></li>
       <li><a href="<?= PUBLIC_URL_HEADER; ?>/login.php" class="menuButton">■ログイン</a></li>
+      <li>
+        <form action="" method="post" id="easyLogin">
+          <span onclick="document.getElementById('easyLogin').submit();">■かんたんログイン</span>
+          <input type="hidden" name="key" value="easyLogin">
+        </form>
+      </li>
     </ul>
   </div>
-
   <div class="mainPackage">
+    <div class="userNameShow">
+      <?= isset($_SESSION['me']) ? "ようこそ：<b>{$_SESSION['me']->name}</b>さん" : ''; ?>
+    </div>
     <!-- 部屋名検索フォーム -->
     <div class="roomSearch">
       <form action="" method="post">

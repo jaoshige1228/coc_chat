@@ -16,12 +16,19 @@ class Chat extends \MyApp\Controller {
   public function chatPost($name,$text,$date,$icon){
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
       if(isset($_POST['post_chat']) && $_POST['post_chat'] == 'ok'){
+        // アイコンがセットされてなければデフォルト
+        $postIcon = ($_SESSION['charIcon'] == "") ? 'sys_img/user.png' : $_SESSION['charIcon'];
+        // var_dump($postIcon);
+        // exit;
+        // if(isset($icon)){
+        //   $icon = 'sys_img/user.png';
+        // }
         // 送信の種類がダイスだった場合の特別処理
         if(isset($_POST['diceValue'])){
           $this->dice();
         }else{
           $chatModel = new \MyApp\Model\ChatModel();
-          $chatModel->chatPost($_POST[$name],h($_POST[$text]),date($date),$_POST[$icon],$_GET['roomId']);
+          $chatModel->chatPost($_POST[$name],h($_POST[$text]),date($date),$postIcon,$_GET['roomId']);
           header('Location: ' . PUBLIC_URL_HEADER . '/chat_room.php/?roomId='.$_GET['roomId']);
         }
         // 時間更新処理
