@@ -48,7 +48,7 @@ $i = 0;
     <h1>〜<?= $room['roomName'];?>〜</h1>
   </div>
   <div class="btn_mypage">
-    
+    <img src="/thumbs/chars.png" alt="">
   </div>
 </header>
 <!-- ajax処理時に使う部屋のIDを密かにセット -->
