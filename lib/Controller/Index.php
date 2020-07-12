@@ -42,9 +42,20 @@ class Index extends \MyApp\Controller {
     // ダミーキャラシを登録する処理
     $this->_createEasyCharSheet();
 
+    // ２番目の部屋に参加者として登録される
+    $this->_addSecondRoom();
+
     // redirect to home
     header('Location: ' . SITE_URL . PUBLIC_URL_HEADER);
     exit;
+  }
+
+  private function _addSecondRoom(){
+    $userName = $_SESSION['me']->name;
+    $plId = $_SESSION['me']->id;
+    $chatModel = new \MyApp\Model\ChatModel();
+    $charId = $chatModel->getCharId($plId);
+    $chatModel->addSecondRoom($charId, $userName);
   }
 
   private function _createEasyCharSheet(){

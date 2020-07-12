@@ -132,4 +132,32 @@ class ChatModel extends \MyApp\Model {
     ]);
     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
   }
+
+  public function getCharId($plId){
+    $sql = "select id from chars where plId = :plId";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([
+      ':plId' => $plId
+    ]);
+    return $stmt->fetch(\PDO::FETCH_COLUMN);
+  }
+
+  public function addSecondRoom($charId, $userName){
+    // 登録されているゲストプレイヤーを削除
+    $sql = "delete from temp_player where charName = '前向 ララ' and roomId = 2";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute();
+
+    // ２番目の部屋に前向ララを登録
+    $sql = "insert into temp_player(roomId, charName, charId, charHP, charMP, charSAN, userName) values(2, '前向 ララ', :charId, 10, 17, 80, :userName)";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue(':charId', $charId, \PDO::PARAM_INT);
+    $stmt->bindValue(':userName', $userName, \PDO::PARAM_STR);
+    $stmt->execute();
+
+    $sql = "insert into userType(roomId, userName, type) values(2, :userName, 'player')";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue(':userName', $userName, \PDO::PARAM_STR);
+    $stmt->execute();
+  }
 }

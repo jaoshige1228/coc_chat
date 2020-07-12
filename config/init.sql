@@ -403,12 +403,44 @@ create table rooms(
   modified datetime
   );
 
+create table chat1(
+  id int(5) zerofill auto_increment primary key,
+  name varchar(255),
+  text varchar(6000),
+  icon varchar(1000),
+  modified datetime
+);
+create table chat2(
+  id int(5) zerofill auto_increment primary key,
+  name varchar(255),
+  text varchar(6000),
+  icon varchar(1000),
+  modified datetime
+);
+
 create table skill_data(
   name varchar(60),
   defaultP int,
   value enum('戦闘','探索','行動','交渉','知識')
 );
 
+insert into rooms(
+  roomName, userName, created, modified
+) values(
+  '誰でも書き込める部屋',
+  'じゃお',
+  '2020-07-10 12:00:00',
+  '2020-07-10 12:00:00'
+);
+
+insert into rooms(
+  roomName, userName, created, modified
+) values(
+  'サンプル部屋',
+  'じゃお',
+  '2020-07-10 13:00:00',
+  '2020-07-10 13:00:00'
+);
 
 
 
