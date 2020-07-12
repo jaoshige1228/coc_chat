@@ -144,18 +144,18 @@ class ChatModel extends \MyApp\Model {
 
   public function addSecondRoom($charId, $userName){
     // 登録されているゲストプレイヤーを削除
-    $sql = "delete from temp_player where charName = '前向 ララ' and roomId = 2";
+    $sql = "delete from temp_player where charName = '前向 ララ' and roomId = 11";
     $stmt = $this->db->prepare($sql);
     $stmt->execute();
 
     // ２番目の部屋に前向ララを登録
-    $sql = "insert into temp_player(roomId, charName, charId, charHP, charMP, charSAN, userName) values(2, '前向 ララ', :charId, 10, 17, 80, :userName)";
+    $sql = "insert into temp_player(roomId, charName, charId, charHP, charMP, charSAN, userName) values(11, '前向 ララ', :charId, 10, 17, 80, :userName)";
     $stmt = $this->db->prepare($sql);
     $stmt->bindValue(':charId', $charId, \PDO::PARAM_INT);
     $stmt->bindValue(':userName', $userName, \PDO::PARAM_STR);
     $stmt->execute();
 
-    $sql = "insert into userType(roomId, userName, type) values(2, :userName, 'player')";
+    $sql = "insert into userType(roomId, userName, type) values(11, :userName, 'player')";
     $stmt = $this->db->prepare($sql);
     $stmt->bindValue(':userName', $userName, \PDO::PARAM_STR);
     $stmt->execute();
