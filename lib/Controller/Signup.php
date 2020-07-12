@@ -41,11 +41,19 @@ class Signup extends \MyApp\Controller {
         return;
       }
 
+      // サンプルキャラシを自動生成
+      $this->_createSampleCharSheet($_POST['name']);
+
       // redirect to login
       header('Location: ' . SITE_URL . PUBLIC_URL_HEADER . '/login.php');
       exit;
     }
+  }
 
+  private function _createSampleCharSheet($name){
+    $userModel = new \MyApp\Model\User();
+    $id = $userModel->getMyId($name);
+    $userModel->_createEasyCharSheet($id, 2);
   }
 
   private function _validate() {

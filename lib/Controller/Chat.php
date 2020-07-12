@@ -25,7 +25,7 @@ class Chat extends \MyApp\Controller {
         // }
         // 送信の種類がダイスだった場合の特別処理
         if(isset($_POST['diceValue'])){
-          $this->dice();
+          $this->dice($postIcon);
         }else{
           $chatModel = new \MyApp\Model\ChatModel();
           $chatModel->chatPost($_POST[$name],h($_POST[$text]),date($date),$postIcon,$_GET['roomId']);
@@ -38,30 +38,30 @@ class Chat extends \MyApp\Controller {
     }
   }
 
-  protected function dice(){
+  protected function dice($postIcon){
     switch($_POST['diceValue']){
       case '1d4':
-        $this->diceOnText('1d4',mt_rand(1,4));
+        $this->diceOnText('1d4',mt_rand(1,4), $postIcon);
         break;
       case '1d6':
-        $this->diceOnText('1d6',mt_rand(1,6));
+        $this->diceOnText('1d6',mt_rand(1,6), $postIcon);
         break;
       case '1d8':
-        $this->diceOnText('1d8',mt_rand(1,8));
+        $this->diceOnText('1d8',mt_rand(1,8), $postIcon);
         break;
       case '1d10':
-        $this->diceOnText('1d10',mt_rand(1,10));
+        $this->diceOnText('1d10',mt_rand(1,10), $postIcon);
         break;
       case '1d20':
-        $this->diceOnText('1d20',mt_rand(1,20));
+        $this->diceOnText('1d20',mt_rand(1,20), $postIcon);
         break;
       case '1d100':
-        $this->diceOnText('1d100',mt_rand(1,100));
+        $this->diceOnText('1d100',mt_rand(1,100), $postIcon);
         break;
     }
   }
-  protected function diceOnText($value,$num){
-    $icon = $_SESSION['charIcon'];
+  protected function diceOnText($value,$num, $postIcon){
+    $icon = $postIcon;
     // ユーザーの入力部分とシステムテキストを分ける
     $boldText = '<b>ダイスロール</b>';
     $diceText = '： '.'['.$value.'] = 【'.$num.'】';
@@ -262,9 +262,14 @@ class Chat extends \MyApp\Controller {
 
   // 入室した部屋の認証状態を確認
   public function getUserType($id){
-    $data = new \MyApp\Model\RoomModel();
-    $userName = $_SESSION['me']->name;
-    $userType = $data->getUserType($id,$userName);
+    // 部屋のIDが１の時（＝誰でも書き込める部屋）、全員がプレイヤーになる
+    if($id == 1){
+      $userType = 'player';
+    }else{
+      $data = new \MyApp\Model\RoomModel();
+      $userName = $_SESSION['me']->name;
+      $userType = $data->getUserType($id,$userName);
+    }
 
     if($userType === false){
       // 認証されていない

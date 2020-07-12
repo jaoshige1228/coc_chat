@@ -32,7 +32,8 @@ if(isset($_POST['value'])){
 if(isset($_POST['skillLast'])){
   $id = $_POST['roomId'];
   $value = $_POST['skillLast'];
-  $icon = $_POST['icon'];
+  $icon = ($_POST['icon'] == "") ? 'sys_img/user.png' : $_POST['icon'];
+  
   $app->diceLast($value,$id,$icon);
   echo $id;
 

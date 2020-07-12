@@ -91,7 +91,7 @@ class ChatModel extends \MyApp\Model {
       $sql = "insert into temp_player(roomId,userName) values(:roomId,:userName)";
       $stmt = $this->db->prepare($sql);
       $stmt->bindValue(':roomId', $id, \PDO::PARAM_INT);
-      $stmt->bindValue(':userName', $userName, \PDO::PARAM_INT);
+      $stmt->bindValue(':userName', $userName, \PDO::PARAM_STR);
       $stmt->execute();
     }catch (\PDOException $e) {
       echo $e->getMessage('おかしいで');

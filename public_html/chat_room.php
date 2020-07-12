@@ -32,14 +32,6 @@ $room = $app->getRoomInfo($_GET['roomId']);
 $tempChars = $app->getTempChars($_GET['roomId']);
 
 $i = 0;
-
-// if($_SESSION['charIcon'] !== ""){
-//   $charImage = $_SESSION['charIcon'];
-// }else{
-//   $charImage = 'sys_img/unti.JPG';
-// }
-
-// $charImage = $_SESSION['charIcon'] !== "" ? $_SESSION['charIcon'] : 'sys_img/unti.JPG';
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +104,7 @@ $i = 0;
         </ul>
       </div>
       <div class="requestedConfirm">
-        <span>うんち</span>をこの部屋の参加者として承認します。
+        <span></span>をこの部屋の参加者として承認します。
         <p> <button type="button">はい</button></p>
       </div>
   

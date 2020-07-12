@@ -1,4 +1,8 @@
 $(function(){
+
+  console.log($('.requestedConfirm').children('span').html());
+
+
   $('.invisible').remove();
   $('.btn_mypage').click(function(){
     $('.mypage_menu').toggle();
@@ -86,9 +90,9 @@ $(function(){
   // 参加申請者を許可する時(はいを押した時)の処理
   $('.requestedConfirm').find('button').on('click',function(){
     if($(this).html() == 'はい'){
-      var userName = $('.requestedConfirm').children('span').html();
+      // var userName = $('.requestedConfirm').children('span').html();
       $.post('/calculation.php',{
-        userName: userName,
+        userName: $('.requestedConfirm').children('span').html(),
         roomId: $('.roomId').val()
       },function(data){
         // console.log(data);

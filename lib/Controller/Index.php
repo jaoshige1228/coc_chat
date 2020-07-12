@@ -34,15 +34,23 @@ class Index extends \MyApp\Controller {
       'password' => $password
     ]);
 
-    // ダミーキャラシを登録する処理
-
+    
     // login処理
     session_regenerate_id(true);
     $_SESSION['me'] = $user;
+    
+    // ダミーキャラシを登録する処理
+    $this->_createEasyCharSheet();
 
     // redirect to home
     header('Location: ' . SITE_URL . PUBLIC_URL_HEADER);
     exit;
+  }
+
+  private function _createEasyCharSheet(){
+    $LaraId = 1;
+    $userModel = new \MyApp\Model\User();
+    $userModel->_createEasyCharSheet($_SESSION['me']->id, $LaraId);
   }
 
 

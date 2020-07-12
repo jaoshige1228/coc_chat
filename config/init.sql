@@ -1,3 +1,7 @@
+create database coc_chat;
+
+grant all on coc_chat.* to dbuser@localhost identified by 'blitz7039';
+
 create table userType(
   id int not null auto_increment primary key,
   roomId int,
@@ -390,6 +394,14 @@ create table skill_name(
   `母国語` varchar(60),
   `他の言語` varchar(60)
 );
+
+create table rooms(
+  id int not null auto_increment primary key,
+  roomName varchar(600),
+  userName varchar(600),
+  created datetime,
+  modified datetime
+  );
 
 create table skill_data(
   name varchar(60),
