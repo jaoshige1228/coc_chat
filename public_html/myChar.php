@@ -19,6 +19,7 @@ if(!function_exists('imagecreatetruecolor')){
 
 var_dump($_SESSION['me']->name);
 var_dump($_SESSION['charName']);
+echo "あああ";
 ?>
 
 <!DOCTYPE html>
