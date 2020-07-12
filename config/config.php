@@ -9,7 +9,7 @@ define('PUBLIC_URL_HEADER','');
 // define('HEROKU_JS','');
 
 // 公開サーバー用
-$db = parse_url($_SERVER['CLEARDB_BLUE_URL']);
+$db = parse_url($_SERVER['CLEARDB_GOLD_URL']);
 $db['dbname'] = ltrim($db['path'], '/');
 define('DSN', "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8");
 define('DB_USERNAME', $db['user']);
