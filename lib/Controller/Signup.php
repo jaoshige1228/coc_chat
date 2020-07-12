@@ -53,7 +53,7 @@ class Signup extends \MyApp\Controller {
   private function _createSampleCharSheet($name){
     $userModel = new \MyApp\Model\User();
     $id = $userModel->getMyId($name);
-    $userModel->_createEasyCharSheet($id, 2);
+    $userModel->_createEasyCharSheet($id, 11);
   }
 
   private function _validate() {

@@ -1,6 +1,6 @@
-create database coc_chat;
+-- create database coc_chat;
 
-grant all on coc_chat.* to dbuser@localhost identified by 'blitz7039';
+-- grant all on coc_chat.* to dbuser@localhost identified by 'blitz7039';
 
 create table userType(
   id int not null auto_increment primary key,
@@ -410,13 +410,15 @@ create table chat1(
   icon varchar(1000),
   modified datetime
 );
-create table chat2(
+
+create table chat11(
   id int(5) zerofill auto_increment primary key,
   name varchar(255),
   text varchar(6000),
   icon varchar(1000),
   modified datetime
 );
+
 
 create table skill_data(
   name varchar(60),

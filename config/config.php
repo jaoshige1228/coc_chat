@@ -28,7 +28,7 @@ define('THUMBNAIL_DIR', __DIR__ . '/../public_html/thumbs');
 define('MAX_SHOW_ROOM',10);
 define('MAX_CHAT_ROOM',10);
 
-define('SITE_URL','http://'.$_SERVER['HTTP_HOST']);
+define('SITE_URL','https://'.$_SERVER['HTTP_HOST']);
 
 require_once(__DIR__ .'/../lib/functions.php');
 require_once(__DIR__ .'/autoload.php');

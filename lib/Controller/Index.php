@@ -82,22 +82,6 @@ class Index extends \MyApp\Controller {
 
     $pagenationMode = 'room';
     return $this->pagenation($roomList,$pagenationMode);
-    // 部屋数をカウントしページ数を定める
-    // $rooms_num = count($roomList);
-    // $pages_num = ceil($rooms_num / MAX_SHOW_ROOM);
-
-    // if(!isset($_GET['roomPage'])){
-    //   $now = 1;
-    // }else{
-    //   $now = $_GET['roomPage'];
-    // }
-
-    // $start_no =($now - 1) * MAX_SHOW_ROOM;
-
-    // $dispData = array_slice($roomList, $start_no, MAX_SHOW_ROOM, true);
-
-    // return [$dispData,$now,$pages_num];
-
   }
 
 }
