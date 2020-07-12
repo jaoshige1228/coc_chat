@@ -16,10 +16,9 @@ ul{
   height: 35px;
   margin-right: 20px;
   margin-top: 8px;
-  /* background-color: red; */
   cursor: pointer;
 }
-.btn_mypage > img{
+.btn_mypage img{
   width: 40px;
   height: 40px;
 }
