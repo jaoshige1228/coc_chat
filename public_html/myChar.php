@@ -16,6 +16,9 @@ if(!function_exists('imagecreatetruecolor')){
   echo 'GD not installed';
   exit;
 }
+
+var_dump($_SESSION['me']->name);
+var_dump($_SESSION['charName']);
 ?>
 
 <!DOCTYPE html>
